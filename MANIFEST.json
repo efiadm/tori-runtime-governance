@@ -1,0 +1,139 @@
+{
+  "system": {
+    "name": "TORI",
+    "version": "0.1.0",
+    "status": "design_artifacts",
+    "summary": "Governed AI-native operating framework for bounded, auditable model-assisted work.",
+    "ip_notice": "TORI is a compositional system; value derives from integration + sequencing across components, not any single file."
+  },
+  "ownership": {
+    "program_owner_role": "TORI Steering Group",
+    "technical_owner_role": "TORI Runtime Maintainers",
+    "safety_owner_role": "TORI Safety & Assurance",
+    "security_owner_role": "TORI Security",
+    "audit_owner_role": "TORI Audit & Controls"
+  },
+  "components": [
+    {
+      "id": "tori.runtime.contract",
+      "version": "0.1.0",
+      "intent": "Defines system-wide guarantees, allowed capabilities, and fail-closed behavior.",
+      "owner_role": "TORI Runtime Maintainers",
+      "interfaces": [
+        "tori.policy.enforcement",
+        "tori.audit.telemetry",
+        "tori.routing.gatekeeper"
+      ]
+    },
+    {
+      "id": "tori.routing.gatekeeper",
+      "version": "0.1.0",
+      "intent": "Classifies requests into controlled paths (informational, analytical, operational) and denies/defers high-risk trajectories.",
+      "owner_role": "TORI Safety & Assurance",
+      "interfaces": [
+        "tori.runtime.contract",
+        "tori.policy.enforcement"
+      ]
+    },
+    {
+      "id": "tori.policy.enforcement",
+      "version": "0.1.0",
+      "intent": "Applies constraints: least privilege, data minimization, escalation rules, and tool-use boundaries.",
+      "owner_role": "TORI Security",
+      "interfaces": [
+        "tori.runtime.contract",
+        "tori.audit.telemetry",
+        "tori.data.handling"
+      ]
+    },
+    {
+      "id": "tori.data.handling",
+      "version": "0.1.0",
+      "intent": "Defines data classification, redaction requirements, retention constraints, and provenance expectations.",
+      "owner_role": "TORI Security",
+      "interfaces": [
+        "tori.policy.enforcement",
+        "tori.audit.telemetry"
+      ]
+    },
+    {
+      "id": "tori.audit.telemetry",
+      "version": "0.1.0",
+      "intent": "Specifies what is logged, how decisions are attributable, and how audits and incident reviews are supported.",
+      "owner_role": "TORI Audit & Controls",
+      "interfaces": [
+        "tori.runtime.contract",
+        "tori.policy.enforcement",
+        "tori.versioning.control"
+      ]
+    },
+    {
+      "id": "tori.risk.alignment",
+      "version": "0.1.0",
+      "intent": "Harm-limiting model: predictable defaults, misuse resistance, uncertainty handling, and escalation/shutdown triggers.",
+      "owner_role": "TORI Safety & Assurance",
+      "interfaces": [
+        "tori.routing.gatekeeper",
+        "tori.policy.enforcement",
+        "tori.operating.limits"
+      ]
+    },
+    {
+      "id": "tori.operating.limits",
+      "version": "0.1.0",
+      "intent": "Enumerates boundaries, failure modes, and explicit shutdown conditions for safe operation.",
+      "owner_role": "TORI Safety & Assurance",
+      "interfaces": [
+        "tori.runtime.contract",
+        "tori.risk.alignment"
+      ]
+    },
+    {
+      "id": "tori.versioning.control",
+      "version": "0.1.0",
+      "intent": "Defines how TORI changes are proposed, reviewed, versioned, validated, and rolled back.",
+      "owner_role": "TORI Audit & Controls",
+      "interfaces": [
+        "tori.audit.telemetry",
+        "tori.runtime.contract"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "component_ref": "tori.runtime.contract",
+      "purpose": "System definition and scope; non-goals; anti-theft framing."
+    },
+    {
+      "path": "MANIFEST.json",
+      "component_ref": "tori.versioning.control",
+      "purpose": "Canonical ledger of components, versions, and ownership."
+    },
+    {
+      "path": "SYSTEM_OVERVIEW.md",
+      "component_ref": "tori.runtime.contract",
+      "purpose": "Architecture, operating principles, and control flow at a high level."
+    },
+    {
+      "path": "RISK_AND_ALIGNMENT.md",
+      "component_ref": "tori.risk.alignment",
+      "purpose": "Safety model, harm-limiting controls, and misuse reduction."
+    },
+    {
+      "path": "OPERATING_LIMITS.md",
+      "component_ref": "tori.operating.limits",
+      "purpose": "Explicit boundaries, failure modes, and shutdown conditions."
+    },
+    {
+      "path": "AUDIT_AND_VERSIONING.md",
+      "component_ref": "tori.versioning.control",
+      "purpose": "Audit model, version semantics, approval gates, and rollback strategy."
+    }
+  ],
+  "consistency": {
+    "naming": "All component IDs use the tori.<domain>.<name> convention.",
+    "versioning": "Single system version; component versions align unless explicitly diverged in future releases.",
+    "ip_notice": "All documents must state TORI is compositional and not replicable from a single file."
+  }
+}
