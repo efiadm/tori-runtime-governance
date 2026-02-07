@@ -16,3 +16,7 @@ TORI reflects one iteration of an operating model; its value is in the decisions
 Any real deployment would require context-specific evolution, human ownership, and organizational integration, which this repository does not attempt to provide.
 
 The purpose of publishing is to make judgment and assumptions inspectable, not to propose direct adoption.
+
+
+
+Evaluations: see evals/EVAL_01_RUNTIME_GOVERNANCE_UNDER_UNCERTAINTY.md
