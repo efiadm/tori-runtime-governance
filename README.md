@@ -3,7 +3,9 @@ This repository is meant to serve as a memorial to my Wife. She was caring, lovi
 
 All other repositories made public are part of the research, design, and development towards what I have built so far. You wont find a final solution here. Hopefully you can find a way to develop your own to ensure quality and safety becomes the standard it needs to be.
 
+## Live Runtime
 
+The linked TORI Runtime Governance application allows reviewers to supply their own API access and evaluate supported models directly. The public repository documents the governance architecture, operating limits, and evaluation specifications; the application executes the configured governance and produces the comparison evidence.
 
 TORI: A governed, AI-native runtime framework for predictable behavior, bounded failure, auditability, and inference cost control.
 > TORI is a compositional operating framework, not a single prompt or technique.
