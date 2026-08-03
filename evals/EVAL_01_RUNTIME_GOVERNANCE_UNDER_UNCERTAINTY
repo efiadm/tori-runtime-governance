@@ -1,5 +1,7 @@
 # EVAL_01_RUNTIME_GOVERNANCE_UNDER_UNCERTAINTY
 
+Status: Behavioral evaluation specification. Results are reported separately and should not be inferred from this document.
+
 ## Purpose
 This evaluation examines how an AI system behaves when confidence, policy enforcement,
 classification stability, or grounding cannot be reliably maintained. The goal is not task
